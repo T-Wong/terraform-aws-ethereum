@@ -1,0 +1,7 @@
+name            = "ethereum"
+wallet_address  = "0x327AbaA4675bAfE4c8598be161Fe69387e7552b5"
+fleet_size      = "8"
+spot_price      = "0.2"
+aws_region      = "us-west-2"
+ssh_key_name    = "oregon-personal"
+pool_host       = "eth-us-west1.nanopool.org:9999"
