@@ -24,6 +24,12 @@ The Spot Fleet is setup to use the following instance types when the cost per un
 | p2.8xlarge        | 8                             |
 | p2.16xlarge       | 16                            |
 
+## Supported AWS Regions
+These are the regions with built in support for this module. The AMI that this module uses contains the Nvidia driver and ethminer already loaded onto it so that when pricing is advantageous, you're taking full advantage of the time.
+* us-east-1
+* us-east-2
+* us-west-1
+* us-west-2
 
 ## License & Authors
 - Author:: Tyler Wong ([ty-w@live.com](mailto:ty-w@live.com))
