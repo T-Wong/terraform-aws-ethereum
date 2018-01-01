@@ -1,5 +1,5 @@
-# Ethereum Spot Fleet Module
-A Terraform module which creates an AWS Spot Fleet to run an Ethereum mining farm on.
+# Ethereum Alarms Module
+A Terraform module which creates an AWS CloudWatch Alarm and SNS Topic to send Spot Fleet status notifications. When `FulfilledCapacity >= 1`, then an email notification is sent to notify that the Spot Request is being fully or partially fulfilled and the alarm is set to the `OK` status.
 
 ## License & Authors
 - Author:: Tyler Wong ([ty-w@live.com](mailto:ty-w@live.com))
