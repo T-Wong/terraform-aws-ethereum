@@ -17,6 +17,14 @@ variable "spot_price" {
   default     = "0.2"
 }
 
+variable "valid_until_date" {
+  description = " The end date and time of the request, in UTC ISO8601 format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request."
+}
+
+variable "email" {
+  description = "Email to send alarm notifications to."
+}
+
 # Optional Variables
 variable "aws_region" {
   description = "AWS region to create resources in"

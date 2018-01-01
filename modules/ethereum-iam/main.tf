@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "ethereum_policy" {
     ]
 
     condition {
-      test      = "StringEquals"
+      test     = "StringEquals"
       variable = "iam:PassedToService"
 
       values = [
@@ -45,8 +45,8 @@ data "aws_iam_policy_document" "ethereum_policy" {
     ]
 
     condition {
-      test      = "ForAllValues:StringEquals"
-      variable  = "aws:TagKeys"
+      test     = "ForAllValues:StringEquals"
+      variable = "aws:TagKeys"
 
       values = [
         "aws:ec2spot:fleet-request-id",
@@ -64,8 +64,8 @@ data "aws_iam_policy_document" "ethereum_policy" {
     ]
 
     condition {
-      test      = "StringLike"
-      variable  = "ec2:ResourceTag/aws:ec2spot:fleet-request-id"
+      test     = "StringLike"
+      variable = "ec2:ResourceTag/aws:ec2spot:fleet-request-id"
 
       values = [
         "*",
@@ -81,7 +81,8 @@ data "aws_iam_policy_document" "ethereum_assume_role" {
     ]
 
     principals {
-      type        = "Service"
+      type = "Service"
+
       identifiers = [
         "spotfleet.amazonaws.com",
       ]
@@ -96,12 +97,12 @@ resource "aws_iam_policy" "ethereum" {
 }
 
 resource "aws_iam_role" "ethereum" {
-  name                = "${var.name}"
-  description         = "IAM role for Ethereum instances"
-  assume_role_policy  = "${data.aws_iam_policy_document.ethereum_assume_role.json}"
+  name               = "${var.name}"
+  description        = "IAM role for Ethereum instances"
+  assume_role_policy = "${data.aws_iam_policy_document.ethereum_assume_role.json}"
 }
 
 resource "aws_iam_role_policy_attachment" "ethereum" {
-  role        = "${aws_iam_role.ethereum.name}"
-  policy_arn  = "${aws_iam_policy.ethereum.arn}"
+  role       = "${aws_iam_role.ethereum.name}"
+  policy_arn = "${aws_iam_policy.ethereum.arn}"
 }

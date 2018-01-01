@@ -11,6 +11,10 @@ variable "fleet_role" {
   description = "The ARN of the IAM role for the SpotFleet requests."
 }
 
+variable "valid_until_date" {
+  description = " The end date and time of the request, in UTC ISO8601 format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request."
+}
+
 # Optional Variables
 variable "fleet_size" {
   description = "The target number of GPUs you want to use for mining."
@@ -32,7 +36,8 @@ variable "ssh_key_name" {
 }
 
 variable "images" {
-  type    = "map"
+  type = "map"
+
   default = {
     "us-east-1" = "ami-816b9bfb"
     "us-east-2" = "ami-7c5b7619"
